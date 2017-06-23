@@ -1,0 +1,77 @@
+[System]
+Name='Domotic-controller'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=3
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Occupancy'
+Range=[0 10]
+NumMFs=3
+MF1='Baja':'trimf',[-4 0 1.96938775510204]
+MF2='Moderada':'trimf',[1 3.01 5.03061224489796]
+MF3='Alta':'trimf',[4.01020408163265 10 14]
+
+[Input2]
+Name='Humidity'
+Range=[0 100]
+NumMFs=5
+MF1='VeryLow':'trimf',[-40 0 15]
+MF2='Normal':'trimf',[32.8 50 63.7755102040816]
+MF3='VeryHigh':'trimf',[83.7755102040816 100 140]
+MF4='Low':'trimf',[7.25 25 39.2857142857143]
+MF5='High':'trimf',[57.2 75 88.469387755102]
+
+[Input3]
+Name='Temperature'
+Range=[-10 40]
+NumMFs=5
+MF1='VeryCold':'trimf',[-30 -10 5.1530612244898]
+MF2='Cold':'trimf',[-3.16 3.42 14.6428571428571]
+MF3='VeryHot':'trimf',[32 40 60]
+MF4='Comfortable':'trimf',[10 20 28]
+MF5='Hot':'trimf',[25 30 35]
+
+[Input4]
+Name='Stench'
+Range=[0 100]
+NumMFs=3
+MF1='None':'trimf',[-40 0 21.734693877551]
+MF2='Some':'trimf',[7.96 28.1 54.3877551020408]
+MF3='Much':'trimf',[36.8367346938776 100 140]
+
+[Output1]
+Name='Heater'
+Range=[0 100]
+NumMFs=4
+MF1='Off':'trapmf',[-36 -4 4 12]
+MF2='Low':'trapmf',[5 15 30 40]
+MF3='High':'trapmf',[69.76 84 109.8 130.2]
+MF4='Medium':'trapmf',[30 42 65 82]
+
+[Output2]
+Name='Cooler'
+Range=[0 100]
+NumMFs=4
+MF1='Off':'trapmf',[-36 -4 10 12]
+MF2='Medium':'trapmf',[30 38 60 70]
+MF3='High':'trapmf',[50 72 104 136]
+MF4='Low':'trapmf',[5 13 28 35]
+
+[Output3]
+Name='Fan'
+Range=[0 100]
+NumMFs=4
+MF1='Off':'trapmf',[-36 -4 4 13]
+MF2='Low':'trapmf',[10 20 40 46]
+MF3='High':'trapmf',[64 78 104 136]
+MF4='Medium':'trapmf',[40 48 65 76]
+
+[Rules]
