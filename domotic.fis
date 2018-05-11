@@ -1,0 +1,56 @@
+[System]
+Name='domotic'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=2
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='temperature'
+Range=[0 40]
+NumMFs=3
+MF1='low':'trapmf',[-14.4 -1.6 20 25]
+MF2='medium':'trapmf',[20 25 30 35]
+MF3='high':'trapmf',[30 35 40 54.4]
+
+[Input2]
+Name='humidity'
+Range=[0 100]
+NumMFs=3
+MF1='dry':'trapmf',[-36 -4 10 20]
+MF2='normal':'trapmf',[5 20 30 40]
+MF3='wet':'trapmf',[35 40 104 136]
+
+[Input3]
+Name='stinch'
+Range=[0 6]
+NumMFs=3
+MF1='none':'trapmf',[-2.16 -0.24 1 2]
+MF2='Low':'trapmf',[1 2 3 4]
+MF3='high':'trapmf',[3 4 6 8.16]
+
+[Output1]
+Name='heater'
+Range=[0 100]
+NumMFs=4
+MF1='stop':'trapmf',[-36 -4 4 16]
+MF2='low':'trapmf',[10 15 30 40]
+MF3='medium':'trapmf',[30 40 60 70]
+MF4='high':'trapmf',[60 70 110 120]
+
+[Output2]
+Name='essence'
+Range=[0 100]
+NumMFs=4
+MF1='stop':'trapmf',[-36 -4 4 16]
+MF2='low':'trapmf',[10 15 30 40]
+MF3='medium':'trapmf',[30 40 60 70]
+MF4='high':'trapmf',[60 70 110 120]
+
+[Rules]
